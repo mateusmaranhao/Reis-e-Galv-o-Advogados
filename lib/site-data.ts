@@ -26,7 +26,11 @@ export const FIRM_DATA = {
   tagline: 'Advocacia Estratégica em Campinas • SP',
   phoneDisplay: '(19) 98424-0366',
   phoneRaw: '+5519984240366',
+  whatsappDisplay: '(19) 98424-0366',
   whatsappUrl: 'https://wa.me/5519984240366',
+  email: 'contato@reisgalvaoadvocacia.com.br',
+  oab: 'OAB/SP 412.980',
+  workingHours: 'Segunda a Sexta, das 08h30 às 18h00',
   address: {
     street: 'Av. Campos Sales, 532',
     complement: 'Sala 122',

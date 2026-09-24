@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Check, Star, ShieldCheck, Scale, Compass, Users } from 'lucide-react';
+import { ArrowUpRight, Check, Star, ShieldCheck, Scale, Compass, Users, MapPin, Phone, MessageSquare, Clock, Navigation } from 'lucide-react';
 import { FIRM_DATA, SERVICES, GENERAL_FAQ } from '@/lib/site-data';
 import FaqAccordion from '@/components/FaqAccordion';
 import { getFaqSchema } from '@/lib/seo';
@@ -35,15 +35,10 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center sm:text-left">
           <div className="max-w-4xl space-y-6">
-            {/* Tag unboxed, zero pill */}
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
+            {/* Tag / H1 com estilização em amarelo/dourado */}
+            <h1 className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
               <span className="w-6 h-[1px] bg-[#D9AB0F] inline-block" />
-              <span>ADVOCACIA EM CAMPINAS • SP</span>
-            </div>
-
-            {/* Semantic H1 (Subordinated for SEO, visual title in H2) */}
-            <h1 className="text-sm sm:text-base text-[#FFFFFF]/70 tracking-wide font-sans max-w-2xl font-normal">
-              Escritório de Advocacia em Campinas para Orientação e Defesa dos Seus Direitos
+              <span>Escritório de Advocacia em Campinas • SP</span>
             </h1>
 
             {/* Visual Headline (H2, dominant editorial statement) */}
@@ -497,7 +492,203 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. SEÇÃO CTA FINAL */}
+      {/* 9. SEÇÃO DE CONTATO & LOCALIZAÇÃO COM GOOGLE MAPS EMBED */}
+      <section id="contato" className="py-20 lg:py-28 bg-[#101010] border-b border-[#313C42]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Cabeçalho da Seção */}
+          <div className="max-w-3xl mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
+              <span className="w-6 h-[1px] bg-[#D9AB0F] inline-block" />
+              <span>LOCALIZAÇÃO & CONTATO • CAMPINAS/SP</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-medium tracking-tight">
+              Nosso Escritório em Campinas
+            </h2>
+            <p className="text-base sm:text-lg text-[#FFFFFF]/75 font-sans leading-relaxed">
+              Atendimento presencial no Centro de Campinas com infraestrutura completa e sigilo garantido, além de assessoria jurídica remota para todo o Estado de São Paulo.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            {/* Coluna 1: Informações de Contato, Endereço e Horários */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <div className="bg-[#181818] border border-[#313C42] p-8 space-y-6">
+                <div className="space-y-2">
+                  <span className="text-xs uppercase tracking-widest text-[#D9AB0F] font-semibold">
+                    Endereço Oficial
+                  </span>
+                  <h3 className="font-serif text-xl sm:text-2xl text-white font-medium flex items-center gap-2.5">
+                    <MapPin className="w-5 h-5 text-[#D9AB0F] shrink-0" />
+                    <span>Centro de Campinas</span>
+                  </h3>
+                </div>
+
+                <div className="space-y-3 text-sm text-[#FFFFFF]/85">
+                  <p className="leading-relaxed">
+                    <strong className="text-white">Av. Campos Sales, 532</strong> – Conjunto 122<br />
+                    Bairro Centro – Campinas/SP<br />
+                    CEP: 13010-081
+                  </p>
+                  <p className="text-xs text-[#FFFFFF]/60 leading-relaxed border-t border-[#313C42]/50 pt-3">
+                    Localização central de fácil acesso, próximo à Av. Francisco Glicério e Praça Carlos Gomes, com múltiplos estacionamentos rotativos no entorno imediato.
+                  </p>
+                </div>
+
+                <div className="border-t border-[#313C42]/70 pt-6 space-y-4 text-sm">
+                  {/* Horário */}
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-4 h-4 text-[#D9AB0F] shrink-0 mt-1" />
+                    <div>
+                      <span className="text-xs uppercase tracking-wider text-[#FFFFFF]/50 font-semibold block">
+                        Horário de Atendimento
+                      </span>
+                      <p className="text-white font-medium">{FIRM_DATA.workingHours}</p>
+                      <span className="text-[11px] text-[#FFFFFF]/60">Atendimentos presenciais com agendamento</span>
+                    </div>
+                  </div>
+
+                  {/* Telefone */}
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-[#D9AB0F] shrink-0 mt-1" />
+                    <div>
+                      <span className="text-xs uppercase tracking-wider text-[#FFFFFF]/50 font-semibold block">
+                        Telefone
+                      </span>
+                      <a
+                        href={`tel:${FIRM_DATA.phoneRaw}`}
+                        className="text-white hover:text-[#D9AB0F] font-medium transition-colors"
+                      >
+                        {FIRM_DATA.phoneDisplay}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div className="flex items-start gap-3">
+                    <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0 mt-1" />
+                    <div>
+                      <span className="text-xs uppercase tracking-wider text-[#FFFFFF]/50 font-semibold block">
+                        WhatsApp Oficial
+                      </span>
+                      <a
+                        href={FIRM_DATA.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#25D366] hover:underline font-medium"
+                      >
+                        {FIRM_DATA.whatsappDisplay}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={FIRM_DATA.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#D9AB0F] hover:bg-[#c4990c] text-black font-semibold text-xs uppercase tracking-widest py-3.5 px-4 transition-all shadow-md hover:-translate-y-0.5"
+                    aria-label="Falar no WhatsApp com Reis Galvão Advocacia"
+                  >
+                    <span>Falar no WhatsApp</span>
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  </a>
+
+                  <a
+                    href="https://maps.google.com/?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 border border-[#313C42] hover:border-[#D9AB0F] text-white hover:text-[#D9AB0F] text-xs uppercase tracking-wider py-3.5 px-4 transition-colors font-medium"
+                    aria-label="Abrir rota no Google Maps"
+                  >
+                    <Navigation className="w-4 h-4 text-[#D9AB0F]" />
+                    <span>Como chegar</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Box de Segurança & OAB */}
+              <div className="bg-[#141414] border border-[#313C42] p-5 flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-[#D9AB0F] shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="text-xs font-semibold text-white uppercase tracking-wider block">
+                    Atendimento Privativo & Sigiloso
+                  </span>
+                  <p className="text-xs text-[#FFFFFF]/70 leading-relaxed">
+                    Inscrito na OAB/SP sob o nº 412.980. Consultas presenciais e virtuais com proteção total de dados e sigilo profissional.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Coluna 2: Google Maps Embed Exato */}
+            <div className="lg:col-span-7 flex flex-col">
+              <div className="relative w-full h-full min-h-[440px] lg:min-h-[520px] bg-[#181818] border border-[#313C42] shadow-2xl overflow-hidden flex flex-col">
+                {/* Topbar editorial do mapa */}
+                <div className="bg-[#141414] border-b border-[#313C42] px-4 py-3 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#D9AB0F] animate-pulse" />
+                    <span className="font-semibold text-white">Reis Galvão Advocacia</span>
+                    <span className="text-[#FFFFFF]/50 hidden sm:inline">• Av. Campos Sales, 532 - Centro, Campinas</span>
+                  </div>
+                  <a
+                    href="https://maps.google.com/?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#D9AB0F] hover:underline font-medium flex items-center gap-1"
+                  >
+                    <span>Ver no Maps</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+
+                {/* Google Maps iFrame */}
+                <div className="relative flex-1 w-full min-h-[360px] bg-[#1a1a1a]">
+                  <iframe
+                    title="Localização exata de Reis Galvão Advocacia em Campinas"
+                    src="https://www.google.com/maps?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, minHeight: '100%', width: '100%' }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full absolute inset-0 filter contrast-[1.05]"
+                  />
+                </div>
+
+                {/* Footer bar do mapa com atalhos de GPS */}
+                <div className="bg-[#141414] border-t border-[#313C42] p-4 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2 text-[#FFFFFF]/70">
+                    <MapPin className="w-4 h-4 text-[#D9AB0F]" />
+                    <span>Coordenadas: 22°54&apos;20.2&quot;S 47°03&apos;38.9&quot;W (Campinas / SP)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://www.waze.com/ul?q=Av.+Campos+Sales,+532,+Campinas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-[#313C42]/50 hover:bg-[#313C42] text-[#FFFFFF]/90 hover:text-white border border-[#313C42] transition-colors rounded-none text-[11px] font-medium"
+                    >
+                      Abrir no Waze
+                    </a>
+                    <a
+                      href="https://maps.google.com/?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-[#D9AB0F]/10 hover:bg-[#D9AB0F]/20 text-[#D9AB0F] border border-[#D9AB0F]/40 transition-colors rounded-none text-[11px] font-medium"
+                    >
+                      Traçar Rota no Google Maps
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. SEÇÃO CTA FINAL */}
       <section className="py-20 lg:py-24 bg-[#181818] relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">

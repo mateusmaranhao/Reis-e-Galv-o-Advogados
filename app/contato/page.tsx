@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { MapPin, Phone, MessageSquare, ShieldCheck, Clock, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, ShieldCheck, Clock, ArrowUpRight, Navigation } from 'lucide-react';
 import { FIRM_DATA } from '@/lib/site-data';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
@@ -162,6 +162,59 @@ export default function ContatoPage() {
 
               <ContactForm />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção com o mapa interativo exato */}
+      <section className="py-16 bg-[#101010] border-t border-[#313C42]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
+                MAPA & ROTA DE ACESSO
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+                Localização em Campinas
+              </h2>
+              <p className="text-sm text-[#FFFFFF]/70">
+                Av. Campos Sales, 532 - Sala 122 - Centro, Campinas/SP (CEP: 13010-081)
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.waze.com/ul?q=Av.+Campos+Sales,+532,+Campinas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#313C42]/50 hover:bg-[#313C42] text-white border border-[#313C42] transition-colors text-xs font-medium"
+              >
+                Abrir no Waze
+              </a>
+              <a
+                href="https://maps.google.com/?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#D9AB0F] hover:bg-[#c4990c] text-black font-semibold text-xs transition-colors"
+              >
+                <Navigation className="w-3.5 h-3.5" />
+                <span>Traçar Rota no Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="w-full h-[450px] bg-[#181818] border border-[#313C42] overflow-hidden shadow-2xl relative">
+            <iframe
+              title="Localização de Reis Galvão Advocacia no Google Maps"
+              src="https://www.google.com/maps?q=Av.+Campos+Sales,+532+-+Centro,+Campinas+-+SP,+13010-081&z=16&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full filter contrast-[1.05]"
+            />
           </div>
         </div>
       </section>

@@ -37,13 +37,10 @@ export default function ServiceDetailView({ service }: ServiceDetailViewProps) {
       <section className="py-16 sm:py-24 border-b border-[#313C42] bg-gradient-to-b from-[#141414] to-[#181818]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
+            {/* Tag / H1 com estilização em amarelo/dourado */}
+            <h1 className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.25em] font-semibold text-[#D9AB0F]">
               <span className="w-6 h-[1px] bg-[#D9AB0F] inline-block" />
               <span>{service.heroTag}</span>
-            </div>
-
-            <h1 className="text-sm sm:text-base text-[#FFFFFF]/70 tracking-wide font-sans font-normal">
-              {service.heroH1}
             </h1>
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-medium tracking-tight leading-[1.14]">
