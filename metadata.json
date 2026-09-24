@@ -1,0 +1,6 @@
+{
+  "name": "Reis Galvão Advocacia",
+  "description": "Site institucional do escritório Reis Galvão Advocacia em Campinas/SP. Atuação especializada em Direito Bancário, Família e Sucessões, Consumidor, Trabalhista e Previdenciário.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
